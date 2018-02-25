@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.5)
 
 # Make PROJECT_SOURCE_DIR, PROJECT_BINARY_DIR, and PROJECT_NAME available.
 set(PROJECT_NAME dave)
@@ -36,9 +36,9 @@ target_link_libraries(dave dave_lib)
 ################################
 
 # Options. Turn on with 'cmake -Dmyvarname=ON'.
-option(BUILD_TESTS "Build all tests." OFF) # Makes boolean 'test' available.
+option(test "Build all tests." OFF) # Makes boolean 'test' available.
 
-if (BUILD_TESTS)
+if (test)
   # This adds another subdirectory, which has 'project(gtest)'.
   add_subdirectory(ext/gtest-1.8.0)
 
