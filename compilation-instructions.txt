@@ -1,1 +1,7 @@
+export CONVERSATION_USERNAME=xxxxxxxxxxxx
+export CONVERSATION_PASSWORD=xxxxxxxxxxxx
+export WORKSPACE_ID=xxxxxxxxxxxx
+
 g++ -std=c++11 rest-client.cpp -lcpr -lcurl
+
+
