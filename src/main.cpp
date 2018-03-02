@@ -4,13 +4,32 @@
 #include <string>
 #include <cpr/cpr.h>
 #include "workspace.h"
+#include "json.hpp"
 
 using namespace std;
 using namespace cpr;
+using json = nlohmann::json;
+
+static bool run;
+
+static void repl(char *accessToken)
+{
+    string str;
+    getline(cin, str);
+    json text = {
+        {"input", {{"text", str}}}};
+    string jsonString = text.dump();
+    cout << jsonString << endl;
+    // auto res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2018-02-16"}, Body{}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
+}
 
 int main(int argc, char **argv)
 {
     string workspaceID;
+    fstream jsonFile;
+    json workspace;
+    run = true;
+    jsonFile.open("file.json");
     map<string, string> environmentVariables;
     string environment[3] = {"CONVERSATION_USERNAME", "CONVERSATION_PASSWORD", "WORKSPACE_ID"};
     for (int i = 0; i < 3; i++)
@@ -64,7 +83,20 @@ int main(int argc, char **argv)
         return 0;
     }
     char *accessToken = getenv((const char *)("CONVERSATION_TOKEN"));
-    res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2018-02-16"}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
-    cout << res.text << res.status_code;
+    while (run)
+    {
+        cout << "You:";
+        repl(accessToken);
+    }
+    // res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2018-02-16"}, Body{}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
+    // jsonFile << res.text;
+    // jsonFile.close();
+    // jsonFile.open("file.json");
+    // jsonFile >> workspace;
+    // for (json::iterator it = workspace["workspaces"].begin(); it != workspace["workspaces"].end(); ++it)
+    // {
+    //     cout << *it << endl;
+    // }
+    // cout << *workspace["workspaces"].begin() << endl;
     return 0;
 }
