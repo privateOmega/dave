@@ -11,6 +11,7 @@ using namespace cpr;
 using json = nlohmann::json;
 
 static bool run;
+map<string, string> environmentVariables;
 
 static void repl(char *accessToken)
 {
@@ -20,7 +21,11 @@ static void repl(char *accessToken)
     json text = {
         {"input", {{"text", str}}}};
     string jsonString = text.dump();
-    auto res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2018-02-16"}, Body{jsonString}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
+    char *link = (char *)"https://gateway.watsonplatform.net/conversation/api/v1/workspaces/";
+    strcat(link, environmentVariables["WORKSPACE_ID"].c_str());
+    const char *version = "?version=2018-02-16";
+    strcat(link, version);
+    auto res = Post(Url{(const char *)link}, Body{jsonString}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
     if (res.status_code == 200)
     {
         json j = json::parse(res.text);
@@ -37,7 +42,6 @@ int main(int argc, char **argv)
     json workspace;
     run = true;
     jsonFile.open("file.json");
-    map<string, string> environmentVariables;
     string environment[3] = {"CONVERSATION_USERNAME", "CONVERSATION_PASSWORD", "WORKSPACE_ID"};
     for (int i = 0; i < 3; i++)
     {
