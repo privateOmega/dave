@@ -18,6 +18,11 @@ static void repl(char *accessToken)
     string str;
     getline(cin, str);
     cout << endl;
+    if (strcmp(str.c_str(), "quit") == 0)
+    {
+        run = false;
+        return;
+    }
     json text = {
         {"input", {{"text", str}}}};
     string jsonString = text.dump();
@@ -25,7 +30,8 @@ static void repl(char *accessToken)
     strcat(link, environmentVariables["WORKSPACE_ID"].c_str());
     const char *version = "?version=2018-02-16";
     strcat(link, version);
-    auto res = Post(Url{(const char *)link}, Body{jsonString}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
+    auto res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces/c23b8f6d-9b11-481b-9ede-c160560f00c3?version=2018-02-16"}, Body{jsonString}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
+    cout << res.text << res.status_code << endl;
     if (res.status_code == 200)
     {
         json j = json::parse(res.text);
