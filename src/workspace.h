@@ -6,8 +6,9 @@
 #include <cstdlib>
 #include <map>
 #include <string>
+#include <string.h>
 #include <cpr/cpr.h>
 
-string createWorkspace();
+std::string createWorkspace();
 
 #endif

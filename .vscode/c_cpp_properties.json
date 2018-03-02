@@ -35,7 +35,6 @@
                 "/usr/include/x86_64-linux-gnu",
                 "/usr/include",
                 "${workspaceRoot}",
-                "${workspaceRoot}/ext/gtest-1.8.0/googletest/include",
                 "/home/kiran/cpr/include/cpr"
             ],
             "defines": [],
