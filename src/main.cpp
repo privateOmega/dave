@@ -16,11 +16,18 @@ static void repl(char *accessToken)
 {
     string str;
     getline(cin, str);
+    cout << endl;
     json text = {
         {"input", {{"text", str}}}};
     string jsonString = text.dump();
-    cout << jsonString << endl;
-    // auto res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2018-02-16"}, Body{}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
+    auto res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2018-02-16"}, Body{jsonString}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
+    if (res.status_code == 200)
+    {
+        json j = json::parse(res.text);
+        cout << "Watson: " << res.text << j["output"] << endl;
+    }
+    else
+        cout << "Error - Try Again." << endl;
 }
 
 int main(int argc, char **argv)
@@ -85,7 +92,7 @@ int main(int argc, char **argv)
     char *accessToken = getenv((const char *)("CONVERSATION_TOKEN"));
     while (run)
     {
-        cout << "You:";
+        cout << "You: ";
         repl(accessToken);
     }
     // res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2018-02-16"}, Body{}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
