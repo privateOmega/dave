@@ -1,0 +1,396 @@
+{
+    "name": "IKA bot",
+    "intents": [{
+        "intent": "decisionReplies",
+        "examples": [{
+            "text": "maybe"
+        }, {
+            "text": "no"
+        }, {
+            "text": "no thank you."
+        }, {
+            "text": "no thanks."
+        }, {
+            "text": "Not a clue"
+        }, {
+            "text": "No idea"
+        }, {
+            "text": "Yes"
+        }, {
+            "text": "Yes definitely"
+        }, {
+            "text": "Yes please"
+        }, {
+            "text": "Yes thank you."
+        }, {
+            "text": "Yes thanks"
+        }],
+        "description": "Replies to decision problems"
+    }, {
+        "intent": "botNameSave",
+        "examples": [{
+            "text": "I think the name Jason will suit you better"
+        }, {
+            "text": "I think I will call you by John"
+        }, {
+            "text": "Can I name you?"
+        }, {
+            "text": "I'll call you mike"
+        }, {
+            "text": "I will call you by Alex"
+        }, {
+            "text": "I want to call you Eva from now on."
+        }, {
+            "text": "Your name is Sam"
+        }, {
+            "text": "What if I call you Liza"
+        }, {
+            "text": "Do you mind If I give you a new name"
+        }],
+        "description": "Call the bot by a name"
+    }, {
+        "intent": "botNameGet",
+        "examples": [{
+            "text": "You forgot to tell me your name"
+        }, {
+            "text": "Do you have a name?"
+        }, {
+            "text": "You didn't tell me your name."
+        }, {
+            "text": "Do you remember your name."
+        }, {
+            "text": "What should I call you?"
+        }, {
+            "text": "how can I call you?"
+        }, {
+            "text": "Tell me your name again."
+        }, {
+            "text": "I forgot your name"
+        }, {
+            "text": "What was your name again?"
+        }, {
+            "text": "Your name please?"
+        }, {
+            "text": "What do others call you?"
+        }, {
+            "text": "Tell me your name"
+        }, {
+            "text": "Your name?"
+        }, {
+            "text": "Tell me what to call you?"
+        }, {
+            "text": "your name"
+        }, {
+            "text": "I'd like to know your name"
+        }, {
+            "text": "you got a name"
+        }],
+        "description": "Get the bot's name"
+    }, {
+        "intent": "greetings",
+        "examples": [{
+            "text": "Yo"
+        }, {
+            "text": "Yello"
+        }, {
+            "text": "Hello"
+        }, {
+            "text": "What's up"
+        }, {
+            "text": "What are you upto?"
+        }, {
+            "text": "What are you doing?"
+        }, {
+            "text": "Sup?"
+        }, {
+            "text": "Say hello to me"
+        }, {
+            "text": "Namaste"
+        }, {
+            "text": "I would like you to say hello"
+        }, {
+            "text": "Hola"
+        }, {
+            "text": "Hiya"
+        }, {
+            "text": "Heyy"
+        }, {
+            "text": "Hey"
+        }, {
+            "text": "Hi there"
+        }, {
+            "text": "Hi my name is Diego"
+        }, {
+            "text": "Hi I am Mr. Nick"
+        }, {
+            "text": "Hi How are you?"
+        }, {
+            "text": "Heyya"
+        }, {
+            "text": "Hey there"
+        }, {
+            "text": "Hello, my name is Rick"
+        }, {
+            "text": "Greetings"
+        }, {
+            "text": "Good day"
+        }, {
+            "text": "Good morning"
+        }, {
+            "text": "Good Evening"
+        }, {
+            "text": "Good afternoon"
+        }, {
+            "text": "Hey my name is Kiran"
+        }],
+        "description": "Greetings salutations"
+    }, {
+        "intent": "goodbye",
+        "examples": [{
+            "text": "Adios"
+        }, {
+            "text": "Bye"
+        }, {
+            "text": "Bye bye"
+        }, {
+            "text": "Bye bye then"
+        }, {
+            "text": "CYA"
+        }, {
+            "text": "Farewell"
+        }, {
+            "text": "Go"
+        }, {
+            "text": "Going"
+        }, {
+            "text": "good bye"
+        }, {
+            "text": "good day"
+        }, {
+            "text": "good night"
+        }, {
+            "text": "goodbye"
+        }, {
+            "text": "goodnight"
+        }, {
+            "text": "gotta go"
+        }, {
+            "text": "gtg"
+        }, {
+            "text": "GN"
+        }, {
+            "text": "Gotta run"
+        }, {
+            "text": "Have a nice day"
+        }, {
+            "text": "I said good bye"
+        }, {
+            "text": "I am leaving"
+        }, {
+            "text": "Later Amigo"
+        }, {
+            "text": "Later"
+        }, {
+            "text": "Leaving"
+        }, {
+            "text": "Logging off"
+        }, {
+            "text": "My time's up"
+        }, {
+            "text": "My time is up"
+        }, {
+            "text": "Out of time"
+        }, {
+            "text": "Over and out"
+        }, {
+            "text": "See you"
+        }, {
+            "text": "See ya"
+        }, {
+            "text": "See you later"
+        }, {
+            "text": "See ya later"
+        }, {
+            "text": "Should be going"
+        }, {
+            "text": "Signing off"
+        }, {
+            "text": "Shutting down"
+        }, {
+            "text": "Then Bye"
+        }, {
+            "text": "Bye then"
+        }],
+        "description": "Good bye talk"
+    }, {
+        "intent": "botCapabilities",
+        "examples": [{
+            "text": "Why should I use you?"
+        }, {
+            "text": "What things can you do?"
+        }, {
+            "text": "What should I ask you?"
+        }, {
+            "text": "What do you know?"
+        }, {
+            "text": "What did you learn?"
+        }, {
+            "text": "What can you do?"
+        }, {
+            "text": "What are your capabilities"
+        }, {
+            "text": "What can you help me with"
+        }, {
+            "text": "Tell me about something you can help me with"
+        }, {
+            "text": "Talk to me about your abilities."
+        }, {
+            "text": "Tell me about your abilities."
+        }, {
+            "text": "What knowledge do you posses?"
+        }],
+        "description": "Capabilities of the bot"
+    }, {
+        "intent": "botNameBad",
+        "examples": [{
+            "text": "I dont like your name"
+        }, {
+            "text": "I dislike your name"
+        }, {
+            "text": "Your name sounds awful"
+        }, {
+            "text": "What an awful name do you have?"
+        }, {
+            "text": "Your name sucks."
+        }, {
+            "text": "Your name is crap."
+        }],
+        "description": "Tell the bot that the name is bad"
+    }, {
+        "intent": "botNameGood",
+        "examples": [{
+            "text": "I like your name."
+        }, {
+            "text": "I like your name a lot"
+        }, {
+            "text": "The name suits you well"
+        }, {
+            "text": "Your name is amazing"
+        }, {
+            "text": "I find your name adorable"
+        }, {
+            "text": "Your name is pretty cool"
+        }, {
+            "text": "Your name sounds cool"
+        }],
+        "description": "Tell the bot that the name is good"
+    }],
+    "entities": [{
+        "entity": "sys-person",
+        "values": [],
+        "metadata": null,
+        "description": null
+    }, {
+        "entity": "sys-location",
+        "values": [],
+        "metadata": null,
+        "description": null
+    }, {
+        "entity": "sys-number",
+        "values": [],
+        "metadata": null,
+        "description": null
+    }],
+    "language": "en",
+    "metadata": {
+        "api_version": {
+            "major_version": "v1",
+            "minor_version": "2017-05-26"
+        }
+    },
+    "description": "",
+    "dialog_nodes": [{
+        "type": "standard",
+        "title": "Anything else",
+        "output": {
+            "text": {
+                "values": ["I didn't understand. You can try rephrasing.", "Can you reword your statement? I'm not understanding.", "I didn't get your meaning."],
+                "selection_policy": "sequential"
+            }
+        },
+        "parent": null,
+        "context": null,
+        "metadata": {},
+        "next_step": null,
+        "conditions": "anything_else",
+        "description": null,
+        "dialog_node": "Anything else",
+        "previous_sibling": "node_5_1519675963010"
+    }, {
+        "type": "standard",
+        "title": "Greetings",
+        "output": {
+            "text": {
+                "values": ["What would you like to know from me?", "Would you like to know more about IKA?", "Got Questions about IKA? Shoot.", "Ask me anything about IKA.", "How can I be of service to you?", "Talk to me about IKA.", "Let's talk Business. IKA it is.", "Interested in IKA?"],
+                "selection_policy": "random"
+            }
+        },
+        "parent": null,
+        "context": null,
+        "metadata": {},
+        "next_step": null,
+        "conditions": "#greetings",
+        "description": null,
+        "dialog_node": "node_4_1519675580750",
+        "previous_sibling": "Welcome"
+    }, {
+        "type": "standard",
+        "title": "Goodbye",
+        "output": {
+            "text": {
+                "values": ["Happy to serve you, $user-name. Talk to me soon.", "Bye Bye. I am tired of answering questions.", "Take care $user-name. Will talk to you soon.", "Lets talk later $user-name."],
+                "selection_policy": "random"
+            }
+        },
+        "parent": null,
+        "context": null,
+        "metadata": {
+            "_customization": {
+                "mcr": false
+            }
+        },
+        "next_step": null,
+        "conditions": "#goodbye && $user-name",
+        "digress_in": "does_not_return",
+        "description": null,
+        "dialog_node": "node_5_1519675963010",
+        "digress_out": "allow_all",
+        "previous_sibling": "node_4_1519675580750"
+    }, {
+        "type": "standard",
+        "title": "Welcome",
+        "output": {
+            "text": {
+                "values": ["Hello there. I am IKA bot.", "Hello I am IKA bot.", "Hey! I'm a IKA's best employee. I can talk all about IKA and what not.", "Hey. I am IKA bot."],
+                "selection_policy": "random"
+            }
+        },
+        "parent": null,
+        "context": null,
+        "metadata": {},
+        "next_step": {
+            "behavior": "jump_to",
+            "selector": "user_input",
+            "dialog_node": "node_4_1519675580750"
+        },
+        "conditions": "welcome",
+        "description": null,
+        "dialog_node": "Welcome",
+        "previous_sibling": null
+    }],
+    "workspace_id": "c23b8f6d-9b11-481b-9ede-c160560f00c3",
+    "counterexamples": [{
+        "text": "Latest movie"
+    }],
+    "learning_opt_out": false
+}
