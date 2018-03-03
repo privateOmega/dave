@@ -13,32 +13,30 @@ using json = nlohmann::json;
 static bool run;
 map<string, string> environmentVariables;
 
-static void repl(char *accessToken)
+void repl(char *accessToken)
 {
-    string str;
-    getline(cin, str);
-    cout << endl;
-    if (strcmp(str.c_str(), "quit") == 0)
+    string input;
+    getline(cin, input);
+    if (strcmp(input.c_str(), "quit") == 0)
     {
         run = false;
         return;
     }
     json text = {
-        {"input", {{"text", str}}}};
+        {"input", {{"text", input}}}};
     string jsonString = text.dump();
-    char *link = (char *)"https://gateway.watsonplatform.net/conversation/api/v1/workspaces/";
-    strcat(link, environmentVariables["WORKSPACE_ID"].c_str());
-    const char *version = "?version=2018-02-16";
-    strcat(link, version);
-    auto res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces/c23b8f6d-9b11-481b-9ede-c160560f00c3?version=2018-02-16"}, Body{jsonString}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
-    cout << res.text << res.status_code << endl;
+    string link = "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/" + environmentVariables["WORKSPACE_ID"] + "/message?version=2018-02-16";
+    auto res = Post(Url{link}, Body{jsonString}, Header{{"X-Watson-Authorization-Token", string((const char *)accessToken)}, {"Content-Type", "application/json"}});
     if (res.status_code == 200)
     {
         json j = json::parse(res.text);
-        cout << "Watson: " << res.text << j["output"] << endl;
+        for (json::iterator it = j["output"]["text"].begin(); it != j["output"]["text"].end(); ++it)
+        {
+            cout << "Watson: " << *it << endl;
+        }
     }
     else
-        cout << "Error - Try Again." << endl;
+        cout << "Error. Please try again." << endl;
 }
 
 int main(int argc, char **argv)
@@ -100,20 +98,13 @@ int main(int argc, char **argv)
         return 0;
     }
     char *accessToken = getenv((const char *)("CONVERSATION_TOKEN"));
+    system("clear");
+    cout << "Enter 'quit' to exit" << endl;
     while (run)
     {
         cout << "You: ";
         repl(accessToken);
     }
-    // res = Post(Url{"https://gateway.watsonplatform.net/conversation/api/v1/workspaces?version=2018-02-16"}, Body{}, Header{{"X-Watson-Authorization-Token", accessToken}, {"Content-Type", "application/json"}});
-    // jsonFile << res.text;
-    // jsonFile.close();
-    // jsonFile.open("file.json");
-    // jsonFile >> workspace;
-    // for (json::iterator it = workspace["workspaces"].begin(); it != workspace["workspaces"].end(); ++it)
-    // {
-    //     cout << *it << endl;
-    // }
-    // cout << *workspace["workspaces"].begin() << endl;
+    cout << "The conversation has ended" << endl;
     return 0;
 }
