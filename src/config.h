@@ -8,7 +8,7 @@
 #include <string>
 
 #include <cpr/cpr.h>
-#include <nlohmann/json.hpp>
+#include "../include/nlohmann/json.hpp"
 
 using namespace std;
 using namespace cpr;

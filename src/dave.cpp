@@ -12,9 +12,9 @@ void Dave::load_config()
 
 void Dave::get_input()
 {
+    cout << endl;
     string input;
     getline(cin, input);
-    cout << endl;
     if (!input.compare("quit"))
     {
         run = false;
@@ -51,7 +51,6 @@ int main(int argc, char **argv)
         {
             cout << "You: ";
             dave.get_input();
-            dave.print_response();
         }
     }
     catch (...)

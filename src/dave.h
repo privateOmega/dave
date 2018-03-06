@@ -8,8 +8,8 @@
 #include <string>
 
 #include <cpr/cpr.h>
-#include <nlohmann/json.hpp>
-#include <portaudio/portaudio.h>
+#include "../include/nlohmann/json.hpp"
+#include "../include/portaudio/portaudio.h"
 #include "config.h"
 
 using namespace std;
@@ -20,12 +20,6 @@ class Dave
   public:
     void load_config();
     void get_input();
-    void print_response();
-
-  private:
-    void clear();
-    bool run;
-    json environmentVariables;
 };
 
 #endif
