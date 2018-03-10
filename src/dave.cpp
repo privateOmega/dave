@@ -1,8 +1,18 @@
 #include "dave.h"
 #include "config.h"
+#include <thread>
+#include <chrono>
 
 static bool run;
 json environmentVariables;
+
+void simulate_typist(string s){
+    for (const auto c : s) {
+        cout << c << flush;
+        this_thread::sleep_for(chrono::milliseconds(50));
+    }
+    cout << endl;
+}
 
 void Dave::load_config()
 {
@@ -12,8 +22,7 @@ void Dave::load_config()
 
 void Dave::get_input()
 {
-    cout << endl;
-    string input;
+    string input, output;
     getline(cin, input);
     if (!input.compare("quit"))
     {
@@ -32,7 +41,9 @@ void Dave::get_input()
         json j = json::parse(res.text);
         for (json::iterator it = j["output"]["text"].begin(); it != j["output"]["text"].end(); ++it)
         {
-            cout << "Dave: " << *it << endl;
+            output = *it;
+            cout << "Dave: ";
+            simulate_typist(output);
         }
     }
     else
