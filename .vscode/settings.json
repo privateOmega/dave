@@ -16,6 +16,8 @@
         "string_view": "cpp",
         "slist": "cpp",
         "initializer_list": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "*.tcc": "cpp",
+        "thread": "cpp"
     }
 }
